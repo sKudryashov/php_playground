@@ -8,23 +8,23 @@ var_dump(3*4);
  * Objects in php5 passed by reference therefore $myClassInstance and $copyInstance
  * linked at the one object
  */
-// Àáñîëþòíî ëåãàëüíîå îáúÿâëåíèå
+// ÐÐ±ÑÐ¾Ð»ÑŽÑ‚Ð½Ð¾ Ð»ÐµÐ³Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð¾Ð±ÑŠÑÐ²Ð»ÐµÐ½Ð¸Ðµ
 //$myClassInstance = new myClass();
 //$copyInstance = $myClassInstance();s
-// êñòàòè åñëè ó îáúåêòà $b åñòü __get òî â ðåçóëüòàòå $a = $obj->b = 8;
-// îí ÍÅ âûçîâåòñÿ
+// ÐºÑÑ‚Ð°Ñ‚Ð¸ ÐµÑÐ»Ð¸ Ñƒ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° $b ÐµÑÑ‚ÑŒ __get Ñ‚Ð¾ Ð² Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ðµ $a = $obj->b = 8;
+// Ð¾Ð½ ÐÐ• Ð²Ñ‹Ð·Ð¾Ð²ÐµÑ‚ÑÑ
 
 /**
- * Êñòàòè ãîâîðÿ - åñëè íà îáúåêò ñóùåñòâóåò õîòÿ áû îäíà ññûëêà, äåñòðóêòîð îáúåêòà 
- * âûçâàí íå áóäåò
+ * ÐšÑÑ‚Ð°Ñ‚Ð¸ Ð³Ð¾Ð²Ð¾Ñ€Ñ - ÐµÑÐ»Ð¸ Ð½Ð° Ð¾Ð±ÑŠÐµÐºÑ‚ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚ Ñ…Ð¾Ñ‚Ñ Ð±Ñ‹ Ð¾Ð´Ð½Ð° ÑÑÑ‹Ð»ÐºÐ°, Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° 
+ * Ð²Ñ‹Ð·Ð²Ð°Ð½ Ð½Ðµ Ð±ÑƒÐ´ÐµÑ‚
  */
 /**
- * Êñòàòè ãîâîðÿ - åñëè õîòÿ áû îäèí ìåòîä â êëàññå îáúÿâëåí êàê àáñòðàêòíûé - 
- * âåñü ìåòîä äîëæåí áûòü àáñòðàêòíûì 
+ * ÐšÑÑ‚Ð°Ñ‚Ð¸ Ð³Ð¾Ð²Ð¾Ñ€Ñ - ÐµÑÐ»Ð¸ Ñ…Ð¾Ñ‚Ñ Ð±Ñ‹ Ð¾Ð´Ð¸Ð½ Ð¼ÐµÑ‚Ð¾Ð´ Ð² ÐºÐ»Ð°ÑÑÐµ Ð¾Ð±ÑŠÑÐ²Ð»ÐµÐ½ ÐºÐ°Ðº Ð°Ð±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ñ‹Ð¹ - 
+ * Ð²ÐµÑÑŒ Ð¼ÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð»Ð¶ÐµÐ½ Ð±Ñ‹Ñ‚ÑŒ Ð°Ð±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ñ‹Ð¼ 
  */
 
  interface  jimone{
-  function one(); // ó èíòåðôåéñîâ íåò òåëà 
+  function one(); // Ñƒ Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐ¾Ð² Ð½ÐµÑ‚ Ñ‚ÐµÐ»Ð° 
   function two();
 }
 
@@ -56,7 +56,7 @@ abstract class spaceAbstract {
     public function  __construct() {
         echo 'constructor called'; // constructor called normally
     }
-    abstract protected function checkme(); // è ó àáñòðàêòíûõ ìåòîäîâ íåò òåëà (÷òî ëîãè÷íî)
+    abstract protected function checkme(); // Ð¸ Ñƒ Ð°Ð±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ñ‹Ñ… Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð² Ð½ÐµÑ‚ Ñ‚ÐµÐ»Ð° (Ñ‡Ñ‚Ð¾ Ð»Ð¾Ð³Ð¸Ñ‡Ð½Ð¾)
 
     abstract protected function heyyou();
 
@@ -90,7 +90,7 @@ $s->heyyou(); // unbeliveably, its work!
 interface rtyt{
    function bot();
 }
-interface asee extends rtyt{ // íîðìàëüíî - èíòåðôåéñû ìîãóò íàñëåäîâàòüñÿ äðóã îò äðóãà
+interface asee extends rtyt{ // Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾ - Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÑ‹ Ð¼Ð¾Ð³ÑƒÑ‚ Ð½Ð°ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÑŒÑÑ Ð´Ñ€ÑƒÐ³ Ð¾Ñ‚ Ð´Ñ€ÑƒÐ³Ð°
     function botsss();
 }
 
@@ -105,20 +105,20 @@ class st implements asee{
 }
 $s = new st();
 
-$one = testNoSTaticCall::run(); // äà ðàáîòàåò. Åùå ðàç óáåäèëñÿ ÷òî ïàáëèê ôóíêöèè ìîæíî âûçûâàòü áåç âûçîâà êëàññà
-                                // ïðè ýòîì $this - undefined
+$one = testNoSTaticCall::run(); // Ð´Ð° Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚. Ð•Ñ‰Ðµ Ñ€Ð°Ð· ÑƒÐ±ÐµÐ´Ð¸Ð»ÑÑ Ñ‡Ñ‚Ð¾ Ð¿Ð°Ð±Ð»Ð¸Ðº Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð¼Ð¾Ð¶Ð½Ð¾ Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð±ÐµÐ· Ð²Ñ‹Ð·Ð¾Ð²Ð° ÐºÐ»Ð°ÑÑÐ°
+                                // Ð¿Ñ€Ð¸ ÑÑ‚Ð¾Ð¼ $this - undefined
 class testNoSTaticCall
 {
     public function run(){
-        $thistest = $this; // åñëè íå î
+        $thistest = $this; // ÐµÑÐ»Ð¸ Ð½Ðµ Ð¾
         return 1;         
     }
 }
 $tt = new testNoSTaticCall;
-// òåñò $this - äëÿ ðàçíûõ ñëó÷àåâ 
+// Ñ‚ÐµÑÑ‚ $this - Ð´Ð»Ñ Ñ€Ð°Ð·Ð½Ñ‹Ñ… ÑÐ»ÑƒÑ‡Ð°ÐµÐ² 
 $tt->run(); // $this = testNoSTaticCall object
-$tt::run(); // à çäåñü $this òîæå íåäîñòóïåí. Ìåæäó ïðî÷èì. Äàæå ïîñëå èíèöèàëèçàöèè êëàññà - ïðè òàêîì âûçîâå
-            // õîðîøî ÷òî äîãàäàëñÿ.
+$tt::run(); // Ð° Ð·Ð´ÐµÑÑŒ $this Ñ‚Ð¾Ð¶Ðµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿ÐµÐ½. ÐœÐµÐ¶Ð´Ñƒ Ð¿Ñ€Ð¾Ñ‡Ð¸Ð¼. Ð”Ð°Ð¶Ðµ Ð¿Ð¾ÑÐ»Ðµ Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ ÐºÐ»Ð°ÑÑÐ° - Ð¿Ñ€Ð¸ Ñ‚Ð°ÐºÐ¾Ð¼ Ð²Ñ‹Ð·Ð¾Ð²Ðµ
+            // Ñ…Ð¾Ñ€Ð¾ÑˆÐ¾ Ñ‡Ñ‚Ð¾ Ð´Ð¾Ð³Ð°Ð´Ð°Ð»ÑÑ.
 
 $st_is = null;
 class foo {
@@ -144,23 +144,23 @@ class foo {
 $a = new foo();
 $b = $a;
 
-// ïîïðîáóåì ïðÿìîé âûçîâ magic ìåòîäîâ
-$v = $b->__toString(); // ðàáîòàåò
-$b->__set('name', 'value'); // ðàáîòàåò íî äâà ðàçà âûçûâàåòñÿ. ò.ê. â ñàìîì îáúåêòå íàçíà÷àåì ñâîéñòâî êîòîðîãî íåò
-                            // è __set âûçûâàåòñÿ íà ýòîò ðàç óæå èç ñàìîãî îáúåêòà
-unset($a); // çäåñü äåñòðóêòîð íå âûçîâåòñÿ. ïîòîìó êàê íà îáúåêò ñóùåñòâóåò ññûëêà
-           // Â ýòîì ñëó÷àå îí âûçîâåòñÿ â êîíöå âûïîëíåíèÿ ñêðèïòà 
-unset($b); // çäåñü âûçîâåòñÿ
+// Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ Ð¿Ñ€ÑÐ¼Ð¾Ð¹ Ð²Ñ‹Ð·Ð¾Ð² magic Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð²
+$v = $b->__toString(); // Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚
+$b->__set('name', 'value'); // Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ð½Ð¾ Ð´Ð²Ð° Ñ€Ð°Ð·Ð° Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ. Ñ‚.Ðº. Ð² ÑÐ°Ð¼Ð¾Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚Ðµ Ð½Ð°Ð·Ð½Ð°Ñ‡Ð°ÐµÐ¼ ÑÐ²Ð¾Ð¹ÑÑ‚Ð²Ð¾ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ Ð½ÐµÑ‚
+                            // Ð¸ __set Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð½Ð° ÑÑ‚Ð¾Ñ‚ Ñ€Ð°Ð· ÑƒÐ¶Ðµ Ð¸Ð· ÑÐ°Ð¼Ð¾Ð³Ð¾ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°
+unset($a); // Ð·Ð´ÐµÑÑŒ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð½Ðµ Ð²Ñ‹Ð·Ð¾Ð²ÐµÑ‚ÑÑ. Ð¿Ð¾Ñ‚Ð¾Ð¼Ñƒ ÐºÐ°Ðº Ð½Ð° Ð¾Ð±ÑŠÐµÐºÑ‚ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚ ÑÑÑ‹Ð»ÐºÐ°
+           // Ð’ ÑÑ‚Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ Ð¾Ð½ Ð²Ñ‹Ð·Ð¾Ð²ÐµÑ‚ÑÑ Ð² ÐºÐ¾Ð½Ñ†Ðµ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð° 
+unset($b); // Ð·Ð´ÐµÑÑŒ Ð²Ñ‹Ð·Ð¾Ð²ÐµÑ‚ÑÑ
 
-// êîíòðîëü âûçîâà äåñòðóêòîðà ïî çàâåðøåíèþ ðàáîòû ñêðèïòà
+// ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»ÑŒ Ð²Ñ‹Ð·Ð¾Ð²Ð° Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð° Ð¿Ð¾ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸ÑŽ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð°
 class controlNotUnsettedDectructor
 {
     public function __destruct() {
-       echo 'checks when the destructor calling'; //  äà ñðàáàòûâàåò ïî çàâåðøåíèè ðàáîòû ñêðèïòà                                                    
+       echo 'checks when the destructor calling'; //  Ð´Ð° ÑÑ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ð¿Ð¾ Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð¸Ð¸ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð°                                                    
     }
 }
 $cn = new controlNotUnsettedDectructor();
-//die(); // ïî âûçîâó die(); àâòîìàòè÷åñêè âûçûâàåòñÿ äåñòðóêòîð 
+//die(); // Ð¿Ð¾ Ð²Ñ‹Ð·Ð¾Ð²Ñƒ die(); Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ 
 interface object_iface
 {
     public function stateone();
@@ -177,7 +177,7 @@ class BETA
         $a = 'dzen';
     }
 }
-// êñòàòè êîíñòàíòû êëàññà ìîãóò õðàíèòü òîëüêî ñêàëÿðíûå çíà÷åíèÿ
+// ÐºÑÑ‚Ð°Ñ‚Ð¸ ÐºÐ¾Ð½ÑÑ‚Ð°Ð½Ñ‚Ñ‹ ÐºÐ»Ð°ÑÑÐ° Ð¼Ð¾Ð³ÑƒÑ‚ Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ ÑÐºÐ°Ð»ÑÑ€Ð½Ñ‹Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ
 class Object extends BETA implements object_iface {
     
     private $_html;
@@ -222,11 +222,11 @@ class Object extends BETA implements object_iface {
             return true;
         }
     }
- // __unset ðàçóñòàíîâêà ñâ-âà êëàññà
+ // __unset Ñ€Ð°Ð·ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° ÑÐ²-Ð²Ð° ÐºÐ»Ð°ÑÑÐ°
     function  __unset($name) {
         echo $name;
     }
-    // âûçûâàåòñÿ ïðè var_export() 
+    // Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð¿Ñ€Ð¸ var_export() 
     function  __set_state($array) {
         $this->array = $array;
         return 'echo "secret labs"';
@@ -238,25 +238,25 @@ class Object extends BETA implements object_iface {
         };
     }
     
-    // Ýòîò ìàãè÷åñêèé ìåòîä âûçûâàåòñÿ ïðè âûçîâå ôóíêöèè clone($object);
+    // Ð­Ñ‚Ð¾Ñ‚ Ð¼Ð°Ð³Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¼ÐµÑ‚Ð¾Ð´ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð¿Ñ€Ð¸ Ð²Ñ‹Ð·Ð¾Ð²Ðµ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ clone($object);
     function __clone(){
-        // äåëàåò êîïèþ äàííîãî îáúåêòà, â ïðîòèâíîì ñëó÷àå
-        // óêàçàòåëü áóäåò óêàçûâàòü íà òîò æå îáúåêò
-        // àãà ïðè òàêîé êîíñòðóêöèè áåñêîíå÷íûé öèêë
+        // Ð´ÐµÐ»Ð°ÐµÑ‚ ÐºÐ¾Ð¿Ð¸ÑŽ Ð´Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°, Ð² Ð¿Ñ€Ð¾Ñ‚Ð¸Ð²Ð½Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ
+        // ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð½Ð° Ñ‚Ð¾Ñ‚ Ð¶Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚
+        // Ð°Ð³Ð° Ð¿Ñ€Ð¸ Ñ‚Ð°ÐºÐ¾Ð¹ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸Ð¸ Ð±ÐµÑÐºÐ¾Ð½ÐµÑ‡Ð½Ñ‹Ð¹ Ñ†Ð¸ÐºÐ»
         //$this->object1 = clone $this;
         return $this->object1;
     }
 
     /**
      *  serialize - unserialize
-     * Êñòàòè:
+     * ÐšÑÑ‚Ð°Ñ‚Ð¸:
      * It is not possible for __sleep() to return names of 
      * private properties in parent classes. 
      * Doing this will result in an E_NOTICE level error.
      * Instead you may use the Serializable interface.
      */
     function  __sleep() { // serialize sleep
-        // åñëè ýòîò ìåòîä íå âîçâðàùàåò íè÷åãî - òî âûëåòèò íîòàéñ
+        // ÐµÑÐ»Ð¸ ÑÑ‚Ð¾Ñ‚ Ð¼ÐµÑ‚Ð¾Ð´ Ð½Ðµ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ð½Ð¸Ñ‡ÐµÐ³Ð¾ - Ñ‚Ð¾ Ð²Ñ‹Ð»ÐµÑ‚Ð¸Ñ‚ Ð½Ð¾Ñ‚Ð°Ð¹Ñ
         $this->serialize = true;
         return $this;
     }
@@ -271,10 +271,10 @@ $clone = clone($o);
 //$a = $o;
 $o->zozhik();
 $o->uraura();
-$o->testPrivatCallWith__Call(); // private ìåòîä. Ïîïàäàåò â __call ò.ê. òóäà ïîïàäàþò âñå 
-                                // âûçîâû òàê èëè èíà÷å íåäîñòóïíûõ ìåòîäîâ
+$o->testPrivatCallWith__Call(); // private Ð¼ÐµÑ‚Ð¾Ð´. ÐŸÐ¾Ð¿Ð°Ð´Ð°ÐµÑ‚ Ð² __call Ñ‚.Ðº. Ñ‚ÑƒÐ´Ð° Ð¿Ð¾Ð¿Ð°Ð´Ð°ÑŽÑ‚ Ð²ÑÐµ 
+                                // Ð²Ñ‹Ð·Ð¾Ð²Ñ‹ Ñ‚Ð°Ðº Ð¸Ð»Ð¸ Ð¸Ð½Ð°Ñ‡Ðµ Ð½ÐµÐ´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹Ñ… Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð²
 echo $o;
-$is = $o->_html; //åñòü âûçîâ __get òàê êàê html - private ñâîéñòâî
+$is = $o->_html; //ÐµÑÑ‚ÑŒ Ð²Ñ‹Ð·Ð¾Ð² __get Ñ‚Ð°Ðº ÐºÐ°Ðº html - private ÑÐ²Ð¾Ð¹ÑÑ‚Ð²Ð¾
 $is = $o->_test_get; 
 if($o->_html){// __get
     $out = $o->_html;
@@ -286,21 +286,21 @@ if(isset($o->serialize)){ // __isset()
 }
 
 /**
- * Âîò ýòî íå ñîâñåì ïðàâèëüíîå èñïîëüçîâàíèå unserialize
+ * Ð’Ð¾Ñ‚ ÑÑ‚Ð¾ Ð½Ðµ ÑÐ¾Ð²ÑÐµÐ¼ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ unserialize
  */
-$ser = serialize($o); // __sleep() - âåðíóë ñåðèàëèçîâàííûé îáúåêò
+$ser = serialize($o); // __sleep() - Ð²ÐµÑ€Ð½ÑƒÐ» ÑÐµÑ€Ð¸Ð°Ð»Ð¸Ð·Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚
 
-//$st = unserialize($o); // âåðíóë false òàê êàê ìû ïûòàåìñÿ ðàññåðèàëèçîâàòü íåñåðèàëèçîâàííûé îáúåêò
-$ser_un = unserialize($ser); // ñòðàííî. Íå ïîëó÷àåòñÿ. Âûçûâàåòñÿ íå wakeup à ïî÷åìó òî destructor
+//$st = unserialize($o); // Ð²ÐµÑ€Ð½ÑƒÐ» false Ñ‚Ð°Ðº ÐºÐ°Ðº Ð¼Ñ‹ Ð¿Ñ‹Ñ‚Ð°ÐµÐ¼ÑÑ Ñ€Ð°ÑÑÐµÑ€Ð¸Ð°Ð»Ð¸Ð·Ð¾Ð²Ð°Ñ‚ÑŒ Ð½ÐµÑÐµÑ€Ð¸Ð°Ð»Ð¸Ð·Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚
+$ser_un = unserialize($ser); // ÑÑ‚Ñ€Ð°Ð½Ð½Ð¾. ÐÐµ Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÑ‚ÑÑ. Ð’Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Ð½Ðµ wakeup Ð° Ð¿Ð¾Ñ‡ÐµÐ¼Ñƒ Ñ‚Ð¾ destructor
 unset ($o); // __unset();
 
 
 /**
- * Ïîïðîáóåì Sleep Wakeup ñ äðóãèì îáúåêòîì
- * Çäåñü âèäíî ÷òî ïðèíöèï ïîõîæå íåìíîãî äðóãîé 
- * èç Sleep ìû âîçâðàùàåì ìàññèâ ñâîéñòâ êëàññà
- * À êîãäà âûçûâàåòñÿ Wakeup - î÷åâèäíî âûçîâ èäåò ÷åðåç
- * êîíñòðóêòîð
+ * ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ Sleep Wakeup Ñ Ð´Ñ€ÑƒÐ³Ð¸Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð¼
+ * Ð—Ð´ÐµÑÑŒ Ð²Ð¸Ð´Ð½Ð¾ Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð½Ñ†Ð¸Ð¿ Ð¿Ð¾Ñ…Ð¾Ð¶Ðµ Ð½ÐµÐ¼Ð½Ð¾Ð³Ð¾ Ð´Ñ€ÑƒÐ³Ð¾Ð¹ 
+ * Ð¸Ð· Sleep Ð¼Ñ‹ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ð¼Ð°ÑÑÐ¸Ð² ÑÐ²Ð¾Ð¹ÑÑ‚Ð² ÐºÐ»Ð°ÑÑÐ°
+ * Ð ÐºÐ¾Ð³Ð´Ð° Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÑ‚ÑÑ Wakeup - Ð¾Ñ‡ÐµÐ²Ð¸Ð´Ð½Ð¾ Ð²Ñ‹Ð·Ð¾Ð² Ð¸Ð´ÐµÑ‚ Ñ‡ÐµÑ€ÐµÐ·
+ * ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
  */
 class Connection
 {
@@ -333,9 +333,9 @@ class Connection
     }
 }
 $connection = new Connection('localhost', 'root', '333888', 'luvshop');
-$data = serialize($connection); // ïîëó÷àåòñÿ ÷òî ïðè ñåðèàëèçàöèè íóæíî 
-                                //âåðíóòü ñïèñîê ñâîéñòâ îáúåêòà â âèäå ìàññèâà
-$st = unserialize($data); // äà âûçâàëñÿ íîðìàëüíî è $st òåïåð íàø îáúåêò
+$data = serialize($connection); // Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÑ‚ÑÑ Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð¸ ÑÐµÑ€Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð½ÑƒÐ¶Ð½Ð¾ 
+                                //Ð²ÐµÑ€Ð½ÑƒÑ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ²Ð¾Ð¹ÑÑ‚Ð² Ð¾Ð±ÑŠÐµÐºÑ‚Ð° Ð² Ð²Ð¸Ð´Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°
+$st = unserialize($data); // Ð´Ð° Ð²Ñ‹Ð·Ð²Ð°Ð»ÑÑ Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾ Ð¸ $st Ñ‚ÐµÐ¿ÐµÑ€ Ð½Ð°Ñˆ Ð¾Ð±ÑŠÐµÐºÑ‚
 
 class testConstr {
 
@@ -347,7 +347,7 @@ class testConstr {
         echo 'testConstr';
     }
 }
-// äâîéíîãî âûçîâà êîíñòðóêòîðà íåò
+// Ð´Ð²Ð¾Ð¹Ð½Ð¾Ð³Ð¾ Ð²Ñ‹Ð·Ð¾Ð²Ð° ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€Ð° Ð½ÐµÑ‚
 $v = new testConstr();
 
 class finaltest
@@ -403,7 +403,7 @@ class footwo {
     public $bar;
     protected $baz;
     private $bas;    
-//    public var1 = "Test"; // String âèäíî îïå÷àòêà â êíèãå. Íå ìîæåò áûòü ïåðåìåííîé áåç $
+//    public var1 = "Test"; // String Ð²Ð¸Ð´Ð½Ð¾ Ð¾Ð¿ÐµÑ‡Ð°Ñ‚ÐºÐ° Ð² ÐºÐ½Ð¸Ð³Ðµ. ÐÐµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ð±ÐµÐ· $
 //    public var2 = '1.23'; // Numeric value
    
 }
@@ -412,24 +412,24 @@ class foothree
 {
     static function callerStat()
     {
-        $m = __METHOD__; //foothree::callerStat â ëþáîì ñëó÷àå
+        $m = __METHOD__; //foothree::callerStat Ð² Ð»ÑŽÐ±Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ
     }
 
     public function callerNoStat()
     {
-        $m =  __METHOD__; //foothree::callerNoStat â ëþáîì ñëó÷àå  
-        $m = $this; //null äî èíèöèàëèçàöèè foothree object ïîñëå
+        $m =  __METHOD__; //foothree::callerNoStat Ð² Ð»ÑŽÐ±Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ  
+        $m = $this; //null Ð´Ð¾ Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ foothree object Ð¿Ð¾ÑÐ»Ðµ
     }
 }
 
-foothree::callerNoStat(); // âîîáùå íå ñòàòè÷åñêèé ìåòîä òîæå âûçâàëñÿ.
+foothree::callerNoStat(); // Ð²Ð¾Ð¾Ð±Ñ‰Ðµ Ð½Ðµ ÑÑ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¼ÐµÑ‚Ð¾Ð´ Ñ‚Ð¾Ð¶Ðµ Ð²Ñ‹Ð·Ð²Ð°Ð»ÑÑ.
 foothree::callerStat();
 $foot = new foothree();
-$foot->callerNoStat(); //íîðìàëüíî
-$foot->callerStat(); // íîðìàëüíî
+$foot->callerNoStat(); //Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾
+$foot->callerStat(); // Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾
 
 $foo = new foostatic();
-// Ïîïðîáóåì âûçâàòü ñòàòè÷åñêèé ìåòîä ïîñëå èíèöèàëèçàöèè êëàññà
+// ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐµÐ¼ Ð²Ñ‹Ð·Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð¼ÐµÑ‚Ð¾Ð´ Ð¿Ð¾ÑÐ»Ðµ Ð¸Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸ ÐºÐ»Ð°ÑÑÐ°
 $foo->baz();
 // 
 //$stat0 = $foo::bar;// fatal
@@ -446,8 +446,8 @@ class foostatic
     }
 }
 
-//íåëüçÿ ÷òîáû â äâóõ ðàçíûõ èíòåðôåéñàõ áûëè îäèíàêîâûå ìåòîäû, òî÷íåå 
-//èõ íåëüçÿ èìïëåìåíòèðîâàòü
+//Ð½ÐµÐ»ÑŒÐ·Ñ Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð² Ð´Ð²ÑƒÑ… Ñ€Ð°Ð·Ð½Ñ‹Ñ… Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹ÑÐ°Ñ… Ð±Ñ‹Ð»Ð¸ Ð¾Ð´Ð¸Ð½Ð°ÐºÐ¾Ð²Ñ‹Ðµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹, Ñ‚Ð¾Ñ‡Ð½ÐµÐµ 
+//Ð¸Ñ… Ð½ÐµÐ»ÑŒÐ·Ñ Ð¸Ð¼Ð¿Ð»ÐµÐ¼ÐµÐ½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ
 interface testinheritance
 {
     function method1();
@@ -503,18 +503,18 @@ function __toString();
 
  */
 
-// ëîâèò âñå íåïîéìàííûå Ecxeption ÷òî ïîçâîëÿåò èçáåæàòü Fatal-à 
+// Ð»Ð¾Ð²Ð¸Ñ‚ Ð²ÑÐµ Ð½ÐµÐ¿Ð¾Ð¹Ð¼Ð°Ð½Ð½Ñ‹Ðµ Ecxeption Ñ‡Ñ‚Ð¾ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¸Ð·Ð±ÐµÐ¶Ð°Ñ‚ÑŒ Fatal-Ð° 
 function catchAllUnhandledException($e)
 {
     echo 'Last Exception!'.$e->getMessage();
 }
-// íî äëÿ ýòîãî íóæíî íàçíà÷èòü õåíäëåð, êñòàòè ýòî áóäåò ïîñëåäíÿÿ ñòðîêà â êîäå
-// êàæåòñÿ êàê òî òàê
+// Ð½Ð¾ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð·Ð½Ð°Ñ‡Ð¸Ñ‚ÑŒ Ñ…ÐµÐ½Ð´Ð»ÐµÑ€, ÐºÑÑ‚Ð°Ñ‚Ð¸ ÑÑ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÑÑ ÑÑ‚Ñ€Ð¾ÐºÐ° Ð² ÐºÐ¾Ð´Ðµ
+// ÐºÐ°Ð¶ÐµÑ‚ÑÑ ÐºÐ°Ðº Ñ‚Ð¾ Ñ‚Ð°Ðº
 set_exception_handler('catchAllUnhandledException');
 
 //throw new Exception ('Throw last exception');
 //echo 'This code never execute! (i hope that all that write in this book, its naked truth';
-// âîññòàíàâëèâàåò íåäàâíî îïðåäåëåííûé õåíäëåð èñêëþ÷åíèé
+// Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð½ÐµÐ´Ð°Ð²Ð½Ð¾ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð½Ñ‹Ð¹ Ñ…ÐµÐ½Ð´Ð»ÐµÑ€ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¹
 //Used after changing the exception handler function using set_exception_handler(), 
 //to revert to the previous exception handler (which could be the built-in 
 //or a user defined function). 
@@ -530,7 +530,7 @@ function __autoload($class)
         throw new Exception('exception');
     }
 }
-//Êàñòîìíûé àâòîçàãðóç÷èê
+//ÐšÐ°ÑÑ‚Ð¾Ð¼Ð½Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð·Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸Ðº
 function __autoload_two($class)
 {
     if(false){
@@ -546,7 +546,7 @@ function __autoload_one($class)
 }
 
 /**
- * Àâòîçàãðóç÷èêè ðåãèñòðèðóþòñÿ è ïîòîì âûïîëíÿþòñÿ â öåïî÷êå
+ * ÐÐ²Ñ‚Ð¾Ð·Ð°Ð³Ñ€ÑƒÐ·Ñ‡Ð¸ÐºÐ¸ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð¸Ñ€ÑƒÑŽÑ‚ÑÑ Ð¸ Ð¿Ð¾Ñ‚Ð¾Ð¼ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÑÑŽÑ‚ÑÑ Ð² Ñ†ÐµÐ¿Ð¾Ñ‡ÐºÐµ
  */
 if(function_exists('__autoload_one')){
     spl_autoload_register('__autoload_one');
@@ -614,35 +614,35 @@ class reflectionTestClass{
     }
 }
 
-// ñ ðåôëåêöèåé òóò íóæíî ïîâíèìàòåëüíåå
+// Ñ Ñ€ÐµÑ„Ð»ÐµÐºÑ†Ð¸ÐµÐ¹ Ñ‚ÑƒÑ‚ Ð½ÑƒÐ¶Ð½Ð¾ Ð¿Ð¾Ð²Ð½Ð¸Ð¼Ð°Ñ‚ÐµÐ»ÑŒÐ½ÐµÐµ
 try
 {
     $many_functions = get_defined_functions();
-    foreach ($many_functions['user'] as $func){ //ôóíööèè äåëÿòñÿ êñòàòè íà âíóòðåííèå è user_defined
+    foreach ($many_functions['user'] as $func){ //Ñ„ÑƒÐ½Ñ†Ñ†Ð¸Ð¸ Ð´ÐµÐ»ÑÑ‚ÑÑ ÐºÑÑ‚Ð°Ñ‚Ð¸ Ð½Ð° Ð²Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½Ð¸Ðµ Ð¸ user_defined
         $ref_func = new ReflectionFunction($func);
         $comment = $ref_func->getDocComment();
         $name = $ref_func->getName();
         $shortname = $ref_func->getShortName();
         $start_line = $ref_func->getStartLine();
         $ref = $ref_func->returnsReference();        
-        $export = $ref_func->export($name); // ýêñïîðò ô-öèè â ñòðî÷êó
+        $export = $ref_func->export($name); // ÑÐºÑÐ¿Ð¾Ñ€Ñ‚ Ñ„-Ñ†Ð¸Ð¸ Ð² ÑÑ‚Ñ€Ð¾Ñ‡ÐºÑƒ
         $is_defined = $ref_func->isUserDefined();
         $str = $ref_func->__toString();
-        //$try_invoke = $ref_func->invoke();// àãà ïðè ïîïûòêå âûçîâà ôàòàë
+        //$try_invoke = $ref_func->invoke();// Ð°Ð³Ð° Ð¿Ñ€Ð¸ Ð¿Ð¾Ð¿Ñ‹Ñ‚ÐºÐµ Ð²Ñ‹Ð·Ð¾Ð²Ð° Ñ„Ð°Ñ‚Ð°Ð»
         //$try_invoke_too = $ref_func->invokeArgs(array('one'=>'one', 'two'=>'due'));
     }
-    $refC = new ReflectionClass('reflectionTestClass'); // ïåðåäàåì èìÿ ïîäîïûòíîãî êëàññà
+    $refC = new ReflectionClass('reflectionTestClass'); // Ð¿ÐµÑ€ÐµÐ´Ð°ÐµÐ¼ Ð¸Ð¼Ñ Ð¿Ð¾Ð´Ð¾Ð¿Ñ‹Ñ‚Ð½Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°
 
    $name_reflection_class = $refC->name; //reflectionTestClass
    $meth = $refC->getMethod('test'); //ReflectionMethod object
    $method = new ReflectionMethod('reflectionTestClass', 'metaPrivate');
-   $method->setAccessible(true); //íè÷åãî êñòàòè íå âîçâðàùàåò
-   $and_we_call_private = $method->invoke(new reflectionTestClass); // âåðíóë rrr its cool!
-                                //êñòàòè âûçîâ ìåòîäà íå ñîâñåì î÷åâèäåí, íóæíî ýòî çàïîìíèòü
+   $method->setAccessible(true); //Ð½Ð¸Ñ‡ÐµÐ³Ð¾ ÐºÑÑ‚Ð°Ñ‚Ð¸ Ð½Ðµ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚
+   $and_we_call_private = $method->invoke(new reflectionTestClass); // Ð²ÐµÑ€Ð½ÑƒÐ» rrr its cool!
+                                //ÐºÑÑ‚Ð°Ñ‚Ð¸ Ð²Ñ‹Ð·Ð¾Ð² Ð¼ÐµÑ‚Ð¾Ð´Ð° Ð½Ðµ ÑÐ¾Ð²ÑÐµÐ¼ Ð¾Ñ‡ÐµÐ²Ð¸Ð´ÐµÐ½, Ð½ÑƒÐ¶Ð½Ð¾ ÑÑ‚Ð¾ Ð·Ð°Ð¿Ð¾Ð¼Ð½Ð¸Ñ‚ÑŒ
    
    
    /**
-    * Reflection Method - äîêóìåíòàöèÿ
+    * Reflection Method - Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ð°Ñ†Ð¸Ñ
     * 
     *  Constants 
     * 
@@ -674,8 +674,8 @@ try
     public bool ReflectionMethod::isProtected ( void )
     public bool ReflectionMethod::isPublic ( void )
     public bool ReflectionMethod::isStatic ( void )
-    public void ReflectionMethod::setAccessible ( bool $accessible ) - Âîò ýòà øòóêà ïîçâîëÿåò ìåíÿòü óðîâåíü 
-    * âèäèìîñòè ìåòîäà !!! Ýòî ïðîñòî îôèãåííî. Ïðèìåð íèæå
+    public void ReflectionMethod::setAccessible ( bool $accessible ) - Ð’Ð¾Ñ‚ ÑÑ‚Ð° ÑˆÑ‚ÑƒÐºÐ° Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð¼ÐµÐ½ÑÑ‚ÑŒ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ 
+    * Ð²Ð¸Ð´Ð¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¼ÐµÑ‚Ð¾Ð´Ð° !!! Ð­Ñ‚Ð¾ Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¾Ñ„Ð¸Ð³ÐµÐ½Ð½Ð¾. ÐŸÑ€Ð¸Ð¼ÐµÑ€ Ð½Ð¸Ð¶Ðµ
     public string ReflectionMethod::__toString  
     * 
     * This is handy for accessing private methods but remember that things are normally private for a reason! Unit Testing is one (debatable) use case for this.
@@ -694,23 +694,23 @@ try
     echo $method->invoke(new Foo);
     // echos "7";
 
-    Ýòî î÷åíü îôèãåííî ðàáîòàåò ñ PHPUnit: http://php.net/manual/en/reflectionmethod.setaccessible.php
+    Ð­Ñ‚Ð¾ Ð¾Ñ‡ÐµÐ½ÑŒ Ð¾Ñ„Ð¸Ð³ÐµÐ½Ð½Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÐµÑ‚ Ñ PHPUnit: http://php.net/manual/en/reflectionmethod.setaccessible.php
     * 
     */
    /**
-    * Òàêæå èç èíòåðåñíûõ âîçìîæíîñòåé ðåôëåêöèè ïðèñóòñòâóåò âîò ÷òî
+    * Ð¢Ð°ÐºÐ¶Ðµ Ð¸Ð· Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ñ‹Ñ… Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹ Ñ€ÐµÑ„Ð»ÐµÐºÑ†Ð¸Ð¸ Ð¿Ñ€Ð¸ÑÑƒÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ Ð²Ð¾Ñ‚ Ñ‡Ñ‚Ð¾
     * ReflectionClass::newInstanceWithoutConstructor ( void )
       Creates a new instance of the class without invoking the constructor. 
     */
    /**
-    * Òàêæå èíòåðåñíûé ôóíêöèîíàë ó  Reflection Object
+    * Ð¢Ð°ÐºÐ¶Ðµ Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ñ‹Ð¹ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¾Ð½Ð°Ð» Ñƒ  Reflection Object
     * The ReflectionObject class reports information about an object.
-    * Âêëþ÷àåò òàêæå ïîëíóþ èíôó î êëàññå, íà áàçå êîòîðîãî ñîçäàí. 
+    * Ð’ÐºÐ»ÑŽÑ‡Ð°ÐµÑ‚ Ñ‚Ð°ÐºÐ¶Ðµ Ð¿Ð¾Ð»Ð½ÑƒÑŽ Ð¸Ð½Ñ„Ñƒ Ð¾ ÐºÐ»Ð°ÑÑÐµ, Ð½Ð° Ð±Ð°Ð·Ðµ ÐºÐ¾Ñ‚Ð¾Ñ€Ð¾Ð³Ð¾ ÑÐ¾Ð·Ð´Ð°Ð½. 
     * http://ua2.php.net/manual/en/class.reflectionobject.php
     */
-   $methods = $refC->getMethods(); // êîëëåêöèÿ ReflectionMethod object? ïðè÷åì â íåé åñòü âñå ìåòîäû âêëþ÷àÿ 
-                                    // protected è private
-   $docComment = $refC->getDocComment(); // êîììåíò
+   $methods = $refC->getMethods(); // ÐºÐ¾Ð»Ð»ÐµÐºÑ†Ð¸Ñ ReflectionMethod object? Ð¿Ñ€Ð¸Ñ‡ÐµÐ¼ Ð² Ð½ÐµÐ¹ ÐµÑÑ‚ÑŒ Ð²ÑÐµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ Ð²ÐºÐ»ÑŽÑ‡Ð°Ñ 
+                                    // protected Ð¸ private
+   $docComment = $refC->getDocComment(); // ÐºÐ¾Ð¼Ð¼ÐµÐ½Ñ‚
    $start = $refC->getStartLine(); // 483
    $end = $refC->getEndLine(); // 506
 
