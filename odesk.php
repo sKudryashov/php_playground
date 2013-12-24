@@ -19,7 +19,7 @@ $foo = 5+"10 things";
 echo $foo; die();
 
 $a = 5;
-// валидный
+// РІР°Р»РёРґРЅС‹Р№
 if($a==5):
     echo 'hello';
     echo 3;
@@ -32,7 +32,7 @@ endif;
 //    echo true; 
 //else
 //    echo false;
-// md5 32 символа sha1 -
+// md5 32 СЃРёРјРІРѕР»Р° sha1 -
 
 //$d = 1 . 3; //13
 //$s = 3*print(3); //3
@@ -52,7 +52,7 @@ $s = 0x500; //1280
 $z = 5*6/2 + 2*3; //21
 
 $z = 'sprintf';
-$ds = $z('go negr'); // работает
+$ds = $z('go negr'); // СЂР°Р±РѕС‚Р°РµС‚
 
 $a = "echo";
 $b = $a('echlo'); // Fatal
@@ -61,7 +61,7 @@ $a = "print";
 $b = $a('echlo'); // Fatal
 
 $str = "Hello world";
-$s = $str[4]; // о
+$s = $str[4]; // Рѕ
 
 
 setlocale(LC_ALL, "fr_FR");
@@ -74,7 +74,7 @@ $t = is_numeric("$200"); //false
 $t = is_numeric(".25e4"); //true
 $a = ".25e4";
 $b = $a+1; //2501
-$c = "200,9" + 1; //201 (о как!)
+$c = "200,9" + 1; //201 (Рѕ РєР°Рє!)
 $c2 = "200jhh"+1; //201
 $c3 = "jsks31"+1; //1
 
@@ -122,7 +122,7 @@ while($i > 4):
     while($i > 0) $i--;
 
 abstract class testAbstract{
-    // abstract function testMemo(){} конечно же такое объявление нелегально. - у абстрактного метода нет тела
+    // abstract function testMemo(){} РєРѕРЅРµС‡РЅРѕ Р¶Рµ С‚Р°РєРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ РЅРµР»РµРіР°Р»СЊРЅРѕ. - Сѓ Р°Р±СЃС‚СЂР°РєС‚РЅРѕРіРѕ РјРµС‚РѕРґР° РЅРµС‚ С‚РµР»Р°
 }
 class testClass extends testAbstract{
 //    function __construct(){
@@ -133,13 +133,13 @@ class testClass extends testAbstract{
         
         $this->super();
     }    
-    //abstract function testMemo(); конечно же класс содержащий абстрактный метод должен быть и сам абстрактным
+    //abstract function testMemo(); РєРѕРЅРµС‡РЅРѕ Р¶Рµ РєР»Р°СЃСЃ СЃРѕРґРµСЂР¶Р°С‰РёР№ Р°Р±СЃС‚СЂР°РєС‚РЅС‹Р№ РјРµС‚РѕРґ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Рё СЃР°Рј Р°Р±СЃС‚СЂР°РєС‚РЅС‹Рј
     
     private function checkMe(){
         echo 'checkMe';
     }
         
-    function __call($method, $data){ // такое объявление - Warning вылетает хотя метод отрабатывает
+    function __call($method, $data){ // С‚Р°РєРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ - Warning РІС‹Р»РµС‚Р°РµС‚ С…РѕС‚СЏ РјРµС‚РѕРґ РѕС‚СЂР°Р±Р°С‚С‹РІР°РµС‚
         $m = $method;
     }
 }
@@ -162,7 +162,7 @@ st();
 $vars = $var; 
 
 $st = sha1('88383');
-$strlen = strlen($st); // sha1 - 40 символов
+$strlen = strlen($st); // sha1 - 40 СЃРёРјРІРѕР»РѕРІ
 $st = crc32('88383');
 $strlen = strlen($st); //10
 
@@ -172,20 +172,20 @@ $bodytag = str_replace(array('b', 'd', 'y'),
         array('y', 'a', 'b'), 
         "<body text='%body%'>"); //<boab text='%boab%'>
 
-$bodytag = str_replace('%body%', true, "<body text='%body%'>"); //<body text='1'> boolean автоматом конверт в 1
+$bodytag = str_replace('%body%', true, "<body text='%body%'>"); //<body text='1'> boolean Р°РІС‚РѕРјР°С‚РѕРј РєРѕРЅРІРµСЂС‚ РІ 1
 
 $bodytag = str_replace('%body%', 1, "<body text='%body%'>"); //) <body text='1'>
 
 
 static $varb = array(1, 'varb', 3);
-//static $varb = 1+(2*90); //неправильное объявление
-//static $varb = sqrt(81); //неправильное объявление
-//static $varb = new Object(); //неправильное объявление
+//static $varb = 1+(2*90); //РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ
+//static $varb = sqrt(81); //РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ
+//static $varb = new Object(); //РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ
 
 
 
-//проверка - могут ли разные интерфейсы с одинаковыми методами и аргументами быть 
-//имплементированы в одном классе 
+//РїСЂРѕРІРµСЂРєР° - РјРѕРіСѓС‚ Р»Рё СЂР°Р·РЅС‹Рµ РёРЅС‚РµСЂС„РµР№СЃС‹ СЃ РѕРґРёРЅР°РєРѕРІС‹РјРё РјРµС‚РѕРґР°РјРё Рё Р°СЂРіСѓРјРµРЅС‚Р°РјРё Р±С‹С‚СЊ 
+//РёРјРїР»РµРјРµРЅС‚РёСЂРѕРІР°РЅС‹ РІ РѕРґРЅРѕРј РєР»Р°СЃСЃРµ 
 interface iOne{
     function first ($one, $two);
     
@@ -203,12 +203,12 @@ interface iThree {
 }
 
 interface iFour extends iOne, iThree{
-//abstract function iSmart(); // выдает вот что: Fatal error: Access type for interface method iFour::iSmart() must be omitted
+//abstract function iSmart(); // РІС‹РґР°РµС‚ РІРѕС‚ С‡С‚Рѕ: Fatal error: Access type for interface method iFour::iSmart() must be omitted
     function iSmart();
 }
 
-// само собой что класс должен имплементировать все методы, которые расширяет
-// интерфейс iFour и 
+// СЃР°РјРѕ СЃРѕР±РѕР№ С‡С‚Рѕ РєР»Р°СЃСЃ РґРѕР»Р¶РµРЅ РёРјРїР»РµРјРµРЅС‚РёСЂРѕРІР°С‚СЊ РІСЃРµ РјРµС‚РѕРґС‹, РєРѕС‚РѕСЂС‹Рµ СЂР°СЃС€РёСЂСЏРµС‚
+// РёРЅС‚РµСЂС„РµР№СЃ iFour Рё 
 class testMultipleExtendingInterfaces implements iFour{
     function iSmart(){
         return 1;
@@ -221,7 +221,7 @@ class testMultipleExtendingInterfaces implements iFour{
          return $one+$two;
      }
     
-   public function second (&$one, $two){ // совместимое объявление включает в себя и опции передачи по ссылке также
+   public function second (&$one, $two){ // СЃРѕРІРјРµСЃС‚РёРјРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ РІРєР»СЋС‡Р°РµС‚ РІ СЃРµР±СЏ Рё РѕРїС†РёРё РїРµСЂРµРґР°С‡Рё РїРѕ СЃСЃС‹Р»РєРµ С‚Р°РєР¶Рµ
         return $one+$two;
     }
 }
@@ -233,14 +233,14 @@ $r2 = $st->first(2,2);
 $r3 = $st->second($five, 2);
 
 
-// ага - здесь даже ошибка парсера. То есть интерфейс не может имплементировать
-// другие интерфейсы - только расширять
+// Р°РіР° - Р·РґРµСЃСЊ РґР°Р¶Рµ РѕС€РёР±РєР° РїР°СЂСЃРµСЂР°. РўРѕ РµСЃС‚СЊ РёРЅС‚РµСЂС„РµР№СЃ РЅРµ РјРѕР¶РµС‚ РёРјРїР»РµРјРµРЅС‚РёСЂРѕРІР°С‚СЊ
+// РґСЂСѓРіРёРµ РёРЅС‚РµСЂС„РµР№СЃС‹ - С‚РѕР»СЊРєРѕ СЂР°СЃС€РёСЂСЏС‚СЊ
 //interface iFive implements iOne, iTwo{
 //    function iSmart();
 //}
 
-// ага. Нельзя имплементировать интерфейсы с двумя одинаковыми методами, даже если они полностью
-// идентичны: Fatal error: Can't inherit abstract function iTwo::second() (previously declared abstract in iOne)
+// Р°РіР°. РќРµР»СЊР·СЏ РёРјРїР»РµРјРµРЅС‚РёСЂРѕРІР°С‚СЊ РёРЅС‚РµСЂС„РµР№СЃС‹ СЃ РґРІСѓРјСЏ РѕРґРёРЅР°РєРѕРІС‹РјРё РјРµС‚РѕРґР°РјРё, РґР°Р¶Рµ РµСЃР»Рё РѕРЅРё РїРѕР»РЅРѕСЃС‚СЊСЋ
+// РёРґРµРЅС‚РёС‡РЅС‹: Fatal error: Can't inherit abstract function iTwo::second() (previously declared abstract in iOne)
 //class weWillTestSame implements iOne, iTwo{
 //    public function first ($one, $two){
 //        return $one+$two;
@@ -269,7 +269,7 @@ function &a(&$a)
 }
 $a = 10;
 $v = &a($a);
-$v++; // и a == v == 11
+$v++; // Рё a == v == 11
 
 $q = a($a);
 $q++; //q = 12 a = 11
@@ -278,9 +278,9 @@ dotOne(4);
 function dotOne($n){
     global $zz;
     if($n>0){
-        dotOne(--$n); // особенности вызова рекурсии в php. После выхода из функции 
-                        // помним что интерпретатор вернется в нее и пройдет оставшиеся операторы
-                        // ДО КОТОРЫХ РЕКУРСИЯ НЕ ДОШЛА
+        dotOne(--$n); // РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё РІС‹Р·РѕРІР° СЂРµРєСѓСЂСЃРёРё РІ php. РџРѕСЃР»Рµ РІС‹С…РѕРґР° РёР· С„СѓРЅРєС†РёРё 
+                        // РїРѕРјРЅРёРј С‡С‚Рѕ РёРЅС‚РµСЂРїСЂРµС‚Р°С‚РѕСЂ РІРµСЂРЅРµС‚СЃСЏ РІ РЅРµРµ Рё РїСЂРѕР№РґРµС‚ РѕСЃС‚Р°РІС€РёРµСЃСЏ РѕРїРµСЂР°С‚РѕСЂС‹
+                        // Р”Рћ РљРћРўРћР Р«РҐ Р Р•РљРЈР РЎРРЇ РќР• Р”РћРЁР›Рђ
         
         $zz .= '.';
     }
@@ -288,10 +288,10 @@ function dotOne($n){
         $zz .= '0';
     }
 }
-$arr = array(0.001=>'uno', .1=>'due'); // ебанутый немного язык... array(1) (  [0] => (string) due)
+$arr = array(0.001=>'uno', .1=>'due'); // РµР±Р°РЅСѓС‚С‹Р№ РЅРµРјРЅРѕРіРѕ СЏР·С‹Рє... array(1) (  [0] => (string) due)
 
-$a = 010; //$a = 8 - восьмеричная система, прведение к десятичной
-$b = 0xA; //$b = 10 - 16ричная система, приведение к десятичной
+$a = 010; //$a = 8 - РІРѕСЃСЊРјРµСЂРёС‡РЅР°СЏ СЃРёСЃС‚РµРјР°, РїСЂРІРµРґРµРЅРёРµ Рє РґРµСЃСЏС‚РёС‡РЅРѕР№
+$b = 0xA; //$b = 10 - 16СЂРёС‡РЅР°СЏ СЃРёСЃС‚РµРјР°, РїСЂРёРІРµРґРµРЅРёРµ Рє РґРµСЃСЏС‚РёС‡РЅРѕР№
 $c = 2;
 print $a + $b + $c;
 
@@ -302,6 +302,6 @@ $newstring .= "$count{$current}";
 $i +=$count-1;
 
 $a = $newstring;
-//29 вопрос битый какой то.
+//29 РІРѕРїСЂРѕСЃ Р±РёС‚С‹Р№ РєР°РєРѕР№ С‚Рѕ.
 ?>
 

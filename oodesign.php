@@ -59,14 +59,14 @@ class Registry
         $name = strtolower($name);
         self::$_register[$name] = $item;
     }
-    // будет возвращена ссылка на соединение а не само соединение
+    // Р±СѓРґРµС‚ РІРѕР·РІСЂР°С‰РµРЅР° СЃСЃС‹Р»РєР° РЅР° СЃРѕРµРґРёРЅРµРЅРёРµ Р° РЅРµ СЃР°РјРѕ СЃРѕРµРґРёРЅРµРЅРёРµ
     public static function &get($name) // 
     {
         $name = strtolower($name);
         if (array_key_exists($name, self::$_register)) {
             return self::$_register[$name];
         } else {
-        $msg = "вЂ™$nameвЂ™ is not registered.";
+        $msg = "РІР‚в„ў$nameРІР‚в„ў is not registered.";
         throw new Exception($msg);
         }
     }
@@ -86,9 +86,9 @@ $db = new DB();
 Registry::add($db);
 // Later on
 if (Registry::exists('DB')) {
-    $db = Registry::get('DB'); // будет возвращена ссылка
+    $db = Registry::get('DB'); // Р±СѓРґРµС‚ РІРѕР·РІСЂР°С‰РµРЅР° СЃСЃС‹Р»РєР°
     $db->_key = 2;
-    $vb = Registry::get('DB'); // будет возвращена ссылка
+    $vb = Registry::get('DB'); // Р±СѓРґРµС‚ РІРѕР·РІСЂР°С‰РµРЅР° СЃСЃС‹Р»РєР°
 } else {
     die('We lost our Database connection somewhere. Bear with us.');
 }
@@ -112,7 +112,7 @@ interface ArrayAccess { // cannot redeclase arrayAccess inteface
     function offsetExists($offset);
 }*/
 
-// Доступ к объекту, как к массиву
+// Р”РѕСЃС‚СѓРї Рє РѕР±СЉРµРєС‚Сѓ, РєР°Рє Рє РјР°СЃСЃРёРІСѓ
 class myArray implements ArrayAccess
 {
     protected $_array;
@@ -133,7 +133,7 @@ class myArray implements ArrayAccess
         unset($this->_array[$offset]);
     }
 
-    // этот метод будет абсолютно нормально работать
+    // СЌС‚РѕС‚ РјРµС‚РѕРґ Р±СѓРґРµС‚ Р°Р±СЃРѕР»СЋС‚РЅРѕ РЅРѕСЂРјР°Р»СЊРЅРѕ СЂР°Р±РѕС‚Р°С‚СЊ
     public function insider()
     {
         $this['start'] = 1;
@@ -144,13 +144,13 @@ class myArray implements ArrayAccess
 $my = new myArray();
 $my['start'] = 1; //offsetSet
 $start = $my['start']; //offsetGet
-$arrk = array_key_exists('start', $my); // offsetExists в этом случае не отрабатывает
+$arrk = array_key_exists('start', $my); // offsetExists РІ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ РЅРµ РѕС‚СЂР°Р±Р°С‚С‹РІР°РµС‚
 $arriss = isset($my['start']); // offsetExists
 unset($my['start']); //offsetUnset
-$my->insider(); // работает как и в любом другом классе
+$my->insider(); // СЂР°Р±РѕС‚Р°РµС‚ РєР°Рє Рё РІ Р»СЋР±РѕРј РґСЂСѓРіРѕРј РєР»Р°СЃСЃРµ
 
 /**
- * Поисковый итератор на всякий случай
+ * РџРѕРёСЃРєРѕРІС‹Р№ РёС‚РµСЂР°С‚РѕСЂ РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№
  * 
  * interface SeekableIterator {
     function current();
@@ -163,7 +163,7 @@ $my->insider(); // работает как и в любом другом классе
  */
 
 /**
- * Интерфейс итератор
+ * РРЅС‚РµСЂС„РµР№СЃ РёС‚РµСЂР°С‚РѕСЂ
  */
 class myIterator implements Iterator
 {
@@ -174,16 +174,16 @@ class myIterator implements Iterator
                         "bat");
     private $_current = 0;
 
-    function current() { // возвращаем текущее значение
+    function current() { // РІРѕР·РІСЂР°С‰Р°РµРј С‚РµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ
         return $this->_myData[$this->_current];
     }
     function next() {
         $this->_current += 1;
     }
-    function rewind() { // ставим номер итерации
+    function rewind() { // СЃС‚Р°РІРёРј РЅРѕРјРµСЂ РёС‚РµСЂР°С†РёРё
         $this->_current = 0;
     }
-    function key() {// возвращаем текущий ключ
+    function key() {// РІРѕР·РІСЂР°С‰Р°РµРј С‚РµРєСѓС‰РёР№ РєР»СЋС‡
         return $this->_current;
     }
     function valid() {
@@ -192,11 +192,11 @@ class myIterator implements Iterator
 }
 
 $data = new myIterator();
-foreach ($data as $key => $value) { //rewind -> valid -> current -> key -> next(на второй и более итерации)
+foreach ($data as $key => $value) { //rewind -> valid -> current -> key -> next(РЅР° РІС‚РѕСЂРѕР№ Рё Р±РѕР»РµРµ РёС‚РµСЂР°С†РёРё)
     echo "$key: $value\n";
 }
 
-// Интерфейс Recursive Iterator
+// РРЅС‚РµСЂС„РµР№СЃ Recursive Iterator
 $company = array(
                 array("Acme Anvil Co."),
                     array(
@@ -225,7 +225,7 @@ class CompanyIterator extends RecursiveIteratorIterator
 class RecursiveArrayObject extends ArrayObject
 {
     function  getIterator() {
-        return new RecursiveArrayIterator($this); // вызывается вместо конструктора при new CompanyIterator($rec)
+        return new RecursiveArrayIterator($this); // РІС‹Р·С‹РІР°РµС‚СЃСЏ РІРјРµСЃС‚Рѕ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїСЂРё new CompanyIterator($rec)
     }
 }
 $rec = new RecursiveArrayObject($company); //extends ArrayObject
@@ -233,7 +233,7 @@ $it = new CompanyIterator($rec); //extends RecursiveIteratorIterator
 
 $in_list = false;
 foreach ($it as $item) {//CompanyIterator::beginChildren() -> CompanyIterator::endChildren()->
-                        //CompanyIterator::beginChildren() в конце и на след итерацию снова beginChildren() и т.д.
+                        //CompanyIterator::beginChildren() РІ РєРѕРЅС†Рµ Рё РЅР° СЃР»РµРґ РёС‚РµСЂР°С†РёСЋ СЃРЅРѕРІР° beginChildren() Рё С‚.Рґ.
     echo str_repeat("\t", $it->getDepth());
     switch ($it->getDepth()) {
         case 1:
@@ -256,7 +256,7 @@ class NumberFilter extends FilterIterator
 
     function __construct($iterator, $odd_or_even = self::FILTER_EVEN)
     {
-        $this->_type = $odd_or_even; // четный
+        $this->_type = $odd_or_even; // С‡РµС‚РЅС‹Р№
         parent::__construct($iterator);
     }
 
@@ -270,10 +270,10 @@ class NumberFilter extends FilterIterator
     }
 }
 
-$numbers = new ArrayObject(range(0, 10)); // создаем объект - массив
-$numbers_it = new ArrayIterator($numbers); // и итератор массива
+$numbers = new ArrayObject(range(0, 10)); // СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ - РјР°СЃСЃРёРІ
+$numbers_it = new ArrayIterator($numbers); // Рё РёС‚РµСЂР°С‚РѕСЂ РјР°СЃСЃРёРІР°
 $it = new NumberFilter($numbers_it, NumberFilter::FILTER_ODD); //extends FilterIterator
 
-foreach ($it as $number) { //на каждой итерации NumberFilter::accept() по 2 раза вызывается
+foreach ($it as $number) { //РЅР° РєР°Р¶РґРѕР№ РёС‚РµСЂР°С†РёРё NumberFilter::accept() РїРѕ 2 СЂР°Р·Р° РІС‹Р·С‹РІР°РµС‚СЃСЏ
     echo $number . PHP_EOL;
 }

@@ -2,40 +2,40 @@
 /**
  * Database chapter 
  */
-// Точные переводы по типам связей между таблицами
+// РўРѕС‡РЅС‹Рµ РїРµСЂРµРІРѕРґС‹ РїРѕ С‚РёРїР°Рј СЃРІСЏР·РµР№ РјРµР¶РґСѓ С‚Р°Р±Р»РёС†Р°РјРё
 /**
- * 1-to-1 - в крайнем случае одна строка в подчиненной таблице
- *          может соответствовать одной строке в родительской
- *          (Или одна или ноль, насколько я понимаю)
- * 1 to many - произвольное число строк в подчиненной таблице может соотв
- *              одной строке в родительской
- * many tp many - произвольное число строк в подчиенной таблице может соответствовать
- *                  произвольному числу строк в родительской
- * Пишут, что если у меня в скрипте много знаков после запятой, больше чем преду
- * смотрено в таблице бд - я получу warning. Ну что ж.. .
- * тип char - строки фиксированной длины (если символов не хватает, строка в таблице заполняется пробелами
- * до указанной длины)
- * тип varchar - строки переменной длины обычно 1-255
- * строки, превышающие лимит обрезаются без warning
- * Тип BLOB используется для хранения бинарных данных, поскольку строки в бд это именно строки
- * а не наборы бинарных данных
- * пишут что все манипуляции с датой лучше проводить на уровне БД
- * NULL в mysql означает что эта колонка не содержит данных
- * И колонка которая NULL конечно же не может быть primary key
+ * 1-to-1 - РІ РєСЂР°Р№РЅРµРј СЃР»СѓС‡Р°Рµ РѕРґРЅР° СЃС‚СЂРѕРєР° РІ РїРѕРґС‡РёРЅРµРЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ
+ *          РјРѕР¶РµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ РѕРґРЅРѕР№ СЃС‚СЂРѕРєРµ РІ СЂРѕРґРёС‚РµР»СЊСЃРєРѕР№
+ *          (РР»Рё РѕРґРЅР° РёР»Рё РЅРѕР»СЊ, РЅР°СЃРєРѕР»СЊРєРѕ СЏ РїРѕРЅРёРјР°СЋ)
+ * 1 to many - РїСЂРѕРёР·РІРѕР»СЊРЅРѕРµ С‡РёСЃР»Рѕ СЃС‚СЂРѕРє РІ РїРѕРґС‡РёРЅРµРЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РјРѕР¶РµС‚ СЃРѕРѕС‚РІ
+ *              РѕРґРЅРѕР№ СЃС‚СЂРѕРєРµ РІ СЂРѕРґРёС‚РµР»СЊСЃРєРѕР№
+ * many tp many - РїСЂРѕРёР·РІРѕР»СЊРЅРѕРµ С‡РёСЃР»Рѕ СЃС‚СЂРѕРє РІ РїРѕРґС‡РёРµРЅРЅРѕР№ С‚Р°Р±Р»РёС†Рµ РјРѕР¶РµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ
+ *                  РїСЂРѕРёР·РІРѕР»СЊРЅРѕРјСѓ С‡РёСЃР»Сѓ СЃС‚СЂРѕРє РІ СЂРѕРґРёС‚РµР»СЊСЃРєРѕР№
+ * РџРёС€СѓС‚, С‡С‚Рѕ РµСЃР»Рё Сѓ РјРµРЅСЏ РІ СЃРєСЂРёРїС‚Рµ РјРЅРѕРіРѕ Р·РЅР°РєРѕРІ РїРѕСЃР»Рµ Р·Р°РїСЏС‚РѕР№, Р±РѕР»СЊС€Рµ С‡РµРј РїСЂРµРґСѓ
+ * СЃРјРѕС‚СЂРµРЅРѕ РІ С‚Р°Р±Р»РёС†Рµ Р±Рґ - СЏ РїРѕР»СѓС‡Сѓ warning. РќСѓ С‡С‚Рѕ Р¶.. .
+ * С‚РёРї char - СЃС‚СЂРѕРєРё С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ РґР»РёРЅС‹ (РµСЃР»Рё СЃРёРјРІРѕР»РѕРІ РЅРµ С…РІР°С‚Р°РµС‚, СЃС‚СЂРѕРєР° РІ С‚Р°Р±Р»РёС†Рµ Р·Р°РїРѕР»РЅСЏРµС‚СЃСЏ РїСЂРѕР±РµР»Р°РјРё
+ * РґРѕ СѓРєР°Р·Р°РЅРЅРѕР№ РґР»РёРЅС‹)
+ * С‚РёРї varchar - СЃС‚СЂРѕРєРё РїРµСЂРµРјРµРЅРЅРѕР№ РґР»РёРЅС‹ РѕР±С‹С‡РЅРѕ 1-255
+ * СЃС‚СЂРѕРєРё, РїСЂРµРІС‹С€Р°СЋС‰РёРµ Р»РёРјРёС‚ РѕР±СЂРµР·Р°СЋС‚СЃСЏ Р±РµР· warning
+ * РўРёРї BLOB РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р±РёРЅР°СЂРЅС‹С… РґР°РЅРЅС‹С…, РїРѕСЃРєРѕР»СЊРєСѓ СЃС‚СЂРѕРєРё РІ Р±Рґ СЌС‚Рѕ РёРјРµРЅРЅРѕ СЃС‚СЂРѕРєРё
+ * Р° РЅРµ РЅР°Р±РѕСЂС‹ Р±РёРЅР°СЂРЅС‹С… РґР°РЅРЅС‹С…
+ * РїРёС€СѓС‚ С‡С‚Рѕ РІСЃРµ РјР°РЅРёРїСѓР»СЏС†РёРё СЃ РґР°С‚РѕР№ Р»СѓС‡С€Рµ РїСЂРѕРІРѕРґРёС‚СЊ РЅР° СѓСЂРѕРІРЅРµ Р‘Р”
+ * NULL РІ mysql РѕР·РЅР°С‡Р°РµС‚ С‡С‚Рѕ СЌС‚Р° РєРѕР»РѕРЅРєР° РЅРµ СЃРѕРґРµСЂР¶РёС‚ РґР°РЅРЅС‹С…
+ * Р РєРѕР»РѕРЅРєР° РєРѕС‚РѕСЂР°СЏ NULL РєРѕРЅРµС‡РЅРѕ Р¶Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ primary key
  *
- * Синтаксис создания БД:
+ * РЎРёРЅС‚Р°РєСЃРёСЃ СЃРѕР·РґР°РЅРёСЏ Р‘Р”:
  * CREATE DATABASE <dbname>
- * ИЛИ
+ * РР›Р
  * CREATE SCHEMA <dbname>
  *
- * Синтаксис создания таблицы:
+ * РЎРёРЅС‚Р°РєСЃРёСЃ СЃРѕР·РґР°РЅРёСЏ С‚Р°Р±Р»РёС†С‹:
  * CREATE TABLE <tablename> (
  * <col1name> <col1type> [<col1attributes>],
  * [ ...
  * <colnname> <colntype> [<colnattributes>]]
  * )
  *
- * ИЛИ ТАК
+ * РР›Р РўРђРљ
  *
  * CREATE TABLE book (
     id INT NOT NULL PRIMARY KEY,
@@ -45,86 +45,86 @@
     publisher VARCHAR(255)
     )
 
-СИнтаксис создания индекса:
+РЎРРЅС‚Р°РєСЃРёСЃ СЃРѕР·РґР°РЅРёСЏ РёРЅРґРµРєСЃР°:
  * CREATE INDEX <indexname>
 ON <tablename> (<column1>[, ..., <columnn>])
 
-ПРИМЕР
+РџР РРњР•Р 
  *
  * CREATE INDEX book_isbn ON book (isbn)
 
-Создание таблицы с one to many зависимостью (подчиненной таблицы конечно)
+РЎРѕР·РґР°РЅРёРµ С‚Р°Р±Р»РёС†С‹ СЃ one to many Р·Р°РІРёСЃРёРјРѕСЃС‚СЊСЋ (РїРѕРґС‡РёРЅРµРЅРЅРѕР№ С‚Р°Р±Р»РёС†С‹ РєРѕРЅРµС‡РЅРѕ)
 CREATE TABLE book_chapter (
 isbn VARCHAR(13) REFERENCES book (id),
 chapter_number INT NOT NULL,
 chapter_title VARCHAR(255)
 )
 
- * Дропать можно таблицы, базы и ключи
+ * Р”СЂРѕРїР°С‚СЊ РјРѕР¶РЅРѕ С‚Р°Р±Р»РёС†С‹, Р±Р°Р·С‹ Рё РєР»СЋС‡Рё
    DROP TABLE book_chapter
-   Понятно что если дропаемая таблица имеет связь и является подчиненной
-   то она никуда не удалится, пока не удалится главная таблица\,
-   это для сохранения целостности данных
+   РџРѕРЅСЏС‚РЅРѕ С‡С‚Рѕ РµСЃР»Рё РґСЂРѕРїР°РµРјР°СЏ С‚Р°Р±Р»РёС†Р° РёРјРµРµС‚ СЃРІСЏР·СЊ Рё СЏРІР»СЏРµС‚СЃСЏ РїРѕРґС‡РёРЅРµРЅРЅРѕР№
+   С‚Рѕ РѕРЅР° РЅРёРєСѓРґР° РЅРµ СѓРґР°Р»РёС‚СЃСЏ, РїРѕРєР° РЅРµ СѓРґР°Р»РёС‚СЃСЏ РіР»Р°РІРЅР°СЏ С‚Р°Р±Р»РёС†Р°\,
+   СЌС‚Рѕ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ С†РµР»РѕСЃС‚РЅРѕСЃС‚Рё РґР°РЅРЅС‹С…
  *
- * По инсерту: есть два варианта инсерта,
+ * РџРѕ РёРЅСЃРµСЂС‚Сѓ: РµСЃС‚СЊ РґРІР° РІР°СЂРёР°РЅС‚Р° РёРЅСЃРµСЂС‚Р°,
  * 1) INSERT INTO table VALUES ('val1', 'val2', 'val3');
- * и
+ * Рё
  * 2) INSERT INTO table (`col1`, `col2`, `col3`) VALUES ('val1', 'val2', 'val3');
- * В первом случае обязательно указывать все поля таблицы. Во втором случае необязательно
- * указывать все поля таблицы. Это хорошо и нужно для тех случаев, когда некоторые поля
- * не нужно указывать вообще (типа таймшамп), они могут бросить error
+ * Р’ РїРµСЂРІРѕРј СЃР»СѓС‡Р°Рµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ СѓРєР°Р·С‹РІР°С‚СЊ РІСЃРµ РїРѕР»СЏ С‚Р°Р±Р»РёС†С‹. Р’Рѕ РІС‚РѕСЂРѕРј СЃР»СѓС‡Р°Рµ РЅРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ
+ * СѓРєР°Р·С‹РІР°С‚СЊ РІСЃРµ РїРѕР»СЏ С‚Р°Р±Р»РёС†С‹. Р­С‚Рѕ С…РѕСЂРѕС€Рѕ Рё РЅСѓР¶РЅРѕ РґР»СЏ С‚РµС… СЃР»СѓС‡Р°РµРІ, РєРѕРіРґР° РЅРµРєРѕС‚РѕСЂС‹Рµ РїРѕР»СЏ
+ * РЅРµ РЅСѓР¶РЅРѕ СѓРєР°Р·С‹РІР°С‚СЊ РІРѕРѕР±С‰Рµ (С‚РёРїР° С‚Р°Р№РјС€Р°РјРї), РѕРЅРё РјРѕРіСѓС‚ Р±СЂРѕСЃРёС‚СЊ error
  *
- * UPDATE book SET publisher = ’Tor Science Fiction’;
-   апдейтит все записи в таблице
+ * UPDATE book SET publisher = вЂ™Tor Science FictionвЂ™;
+   Р°РїРґРµР№С‚РёС‚ РІСЃРµ Р·Р°РїРёСЃРё РІ С‚Р°Р±Р»РёС†Рµ
  *
  * UPDATE book
-    SET publisher = ’Tor Science Fiction’, author = ’Orson S. Card’
-    WHERE isbn = ’0812550706’;
- * Апдейтит определенную запись в таблице (интересно, условия OR и AND работают в этом случае?) 
+    SET publisher = вЂ™Tor Science FictionвЂ™, author = вЂ™Orson S. CardвЂ™
+    WHERE isbn = вЂ™0812550706вЂ™;
+ * РђРїРґРµР№С‚РёС‚ РѕРїСЂРµРґРµР»РµРЅРЅСѓСЋ Р·Р°РїРёСЃСЊ РІ С‚Р°Р±Р»РёС†Рµ (РёРЅС‚РµСЂРµСЃРЅРѕ, СѓСЃР»РѕРІРёСЏ OR Рё AND СЂР°Р±РѕС‚Р°СЋС‚ РІ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ?) 
 
- *Удаление из бд DELETE FROM book; - удаляет все записи из таблицы
+ *РЈРґР°Р»РµРЅРёРµ РёР· Р±Рґ DELETE FROM book; - СѓРґР°Р»СЏРµС‚ РІСЃРµ Р·Р°РїРёСЃРё РёР· С‚Р°Р±Р»РёС†С‹
  *
- * Удаляет конкретную запись из таблицы DELETE FROM book WHERE isbn = ’0812550706’;
+ * РЈРґР°Р»СЏРµС‚ РєРѕРЅРєСЂРµС‚РЅСѓСЋ Р·Р°РїРёСЃСЊ РёР· С‚Р°Р±Р»РёС†С‹ DELETE FROM book WHERE isbn = вЂ™0812550706вЂ™;
 
 
  */
 
 /**
- * Образец транзакции
+ * РћР±СЂР°Р·РµС† С‚СЂР°РЅР·Р°РєС†РёРё
  * 
  * START TRANSACTION
-   DELETE FROM book WHERE isbn LIKE ’0655%’
+   DELETE FROM book WHERE isbn LIKE вЂ™0655%вЂ™
    UPDATE book_chapter set chapter_number = chapter_number + 1
    ROLLBACK
    START TRANSACTION
    UPDATE book SET id = id + 1
-   DELETE FROM book_chapter WHERE isbn LIKE ’0433%’
+   DELETE FROM book_chapter WHERE isbn LIKE вЂ™0433%вЂ™
    COMMIT
  */
 
-// Отдельная тема это PDO Object
-// Обратить внимание на формат записи $dsn в PDO
-// Для соединения через сокет нужно сделать это так:
+// РћС‚РґРµР»СЊРЅР°СЏ С‚РµРјР° СЌС‚Рѕ PDO Object
+// РћР±СЂР°С‚РёС‚СЊ РІРЅРёРјР°РЅРёРµ РЅР° С„РѕСЂРјР°С‚ Р·Р°РїРёСЃРё $dsn РІ PDO
+// Р”Р»СЏ СЃРѕРµРґРёРЅРµРЅРёСЏ С‡РµСЂРµР· СЃРѕРєРµС‚ РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ СЌС‚Рѕ С‚Р°Рє:
 //  $dsn = 'mysql:dbname=testdb;unix_socket=/path/to/socket';
 $pdo = new PDO('mysql:dbname=testdb;host=127.0.0.1', 'root', '333888');
-//Кстати драйверы  PDO могут быть вот такими:
+//РљСЃС‚Р°С‚Рё РґСЂР°Р№РІРµСЂС‹  PDO РјРѕРіСѓС‚ Р±С‹С‚СЊ РІРѕС‚ С‚Р°РєРёРјРё:
 /*
-CUBRID (PDO) — CUBRID Functions (PDO_CUBRID)
-MS SQL Server (PDO) — Microsoft SQL Server and Sybase Functions (PDO_DBLIB)
-Firebird/Interbase (PDO) — Firebird/Interbase Functions (PDO_FIREBIRD)
-IBM (PDO) — IBM Functions (PDO_IBM)
-Informix (PDO) — Informix Functions (PDO_INFORMIX)
-MySQL (PDO) — MySQL Functions (PDO_MYSQL)
-MS SQL Server (PDO) — Microsoft SQL Server Functions (PDO_SQLSRV)
-Oracle (PDO) — Oracle Functions (PDO_OCI)
-ODBC and DB2 (PDO) — ODBC and DB2 Functions (PDO_ODBC)
-PostgreSQL (PDO) — PostgreSQL Functions (PDO_PGSQL)
-SQLite (PDO) — SQLite Functions (PDO_SQLITE)
+CUBRID (PDO) вЂ” CUBRID Functions (PDO_CUBRID)
+MS SQL Server (PDO) вЂ” Microsoft SQL Server and Sybase Functions (PDO_DBLIB)
+Firebird/Interbase (PDO) вЂ” Firebird/Interbase Functions (PDO_FIREBIRD)
+IBM (PDO) вЂ” IBM Functions (PDO_IBM)
+Informix (PDO) вЂ” Informix Functions (PDO_INFORMIX)
+MySQL (PDO) вЂ” MySQL Functions (PDO_MYSQL)
+MS SQL Server (PDO) вЂ” Microsoft SQL Server Functions (PDO_SQLSRV)
+Oracle (PDO) вЂ” Oracle Functions (PDO_OCI)
+ODBC and DB2 (PDO) вЂ” ODBC and DB2 Functions (PDO_ODBC)
+PostgreSQL (PDO) вЂ” PostgreSQL Functions (PDO_PGSQL)
+SQLite (PDO) вЂ” SQLite Functions (PDO_SQLITE)
 4D (PDO)
 * 
 */ 
 /**
- * Доступные методы:
+ * Р”РѕСЃС‚СѓРїРЅС‹Рµ РјРµС‚РѕРґС‹:
  * __construct ( string $dsn [, string $username [, string $password [, array $driver_options ]]] )
     bool beginTransaction ( void )
     bool commit ( void )
@@ -141,35 +141,35 @@ SQLite (PDO) — SQLite Functions (PDO_SQLITE)
     bool rollBack ( void )
     bool setAttribute ( int $attribute , mixed $value )
  */
-// когда  SELECT запрос выполняется - мы получаем PDOStatement объект в качестве ответа
-// а в нем доступны уже следующие методы:
+// РєРѕРіРґР°  SELECT Р·Р°РїСЂРѕСЃ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ - РјС‹ РїРѕР»СѓС‡Р°РµРј PDOStatement РѕР±СЉРµРєС‚ РІ РєР°С‡РµСЃС‚РІРµ РѕС‚РІРµС‚Р°
+// Р° РІ РЅРµРј РґРѕСЃС‚СѓРїРЅС‹ СѓР¶Рµ СЃР»РµРґСѓСЋС‰РёРµ РјРµС‚РѕРґС‹:
 /**
  *  
-    PDOStatement->bindColumn — Bind a column to a PHP variable
+    PDOStatement->bindColumn вЂ” Bind a column to a PHP variable
  *  Since information about the columns is not always available to PDO until the statement is executed, 
  *  portable applications should call this function after PDOStatement::execute(). 
  * 
-    PDOStatement->bindParam — Binds a parameter to the specified variable name
-    PDOStatement->bindValue — Binds a value to a parameter
-    PDOStatement->closeCursor — Closes the cursor, enabling the statement to be executed again.
-    PDOStatement->columnCount — Returns the number of columns in the result set
-    PDOStatement->debugDumpParams — Dump an SQL prepared command
-    PDOStatement->errorCode — Fetch the SQLSTATE associated with the last operation on the statement handle
-    PDOStatement->errorInfo — Fetch extended error information associated with the last operation on the statement handle
-    PDOStatement->execute — Executes a prepared statement
-    PDOStatement->fetch — Fetches the next row from a result set
-    PDOStatement->fetchAll — Returns an array containing all of the result set rows
-    PDOStatement->fetchColumn — Returns a single column from the next row of a result set
-    PDOStatement->fetchObject — Fetches the next row and returns it as an object.
-    PDOStatement->getAttribute — Retrieve a statement attribute
-    PDOStatement->getColumnMeta — Returns metadata for a column in a result set
-    PDOStatement->nextRowset — Advances to the next rowset in a multi-rowset statement handle
-    PDOStatement->rowCount — Returns the number of rows affected by the last SQL statement
-    PDOStatement->setAttribute — Set a statement attribute
-    PDOStatement->setFetchMode — Set the default fetch mode for this statement
+    PDOStatement->bindParam вЂ” Binds a parameter to the specified variable name
+    PDOStatement->bindValue вЂ” Binds a value to a parameter
+    PDOStatement->closeCursor вЂ” Closes the cursor, enabling the statement to be executed again.
+    PDOStatement->columnCount вЂ” Returns the number of columns in the result set
+    PDOStatement->debugDumpParams вЂ” Dump an SQL prepared command
+    PDOStatement->errorCode вЂ” Fetch the SQLSTATE associated with the last operation on the statement handle
+    PDOStatement->errorInfo вЂ” Fetch extended error information associated with the last operation on the statement handle
+    PDOStatement->execute вЂ” Executes a prepared statement
+    PDOStatement->fetch вЂ” Fetches the next row from a result set
+    PDOStatement->fetchAll вЂ” Returns an array containing all of the result set rows
+    PDOStatement->fetchColumn вЂ” Returns a single column from the next row of a result set
+    PDOStatement->fetchObject вЂ” Fetches the next row and returns it as an object.
+    PDOStatement->getAttribute вЂ” Retrieve a statement attribute
+    PDOStatement->getColumnMeta вЂ” Returns metadata for a column in a result set
+    PDOStatement->nextRowset вЂ” Advances to the next rowset in a multi-rowset statement handle
+    PDOStatement->rowCount вЂ” Returns the number of rows affected by the last SQL statement
+    PDOStatement->setAttribute вЂ” Set a statement attribute
+    PDOStatement->setFetchMode вЂ” Set the default fetch mode for this statement
  */
 /**
- * Работает примерно следующим образом:
+ * Р Р°Р±РѕС‚Р°РµС‚ РїСЂРёРјРµСЂРЅРѕ СЃР»РµРґСѓСЋС‰РёРј РѕР±СЂР°Р·РѕРј:
  * 
  * function readData($dbh) {
       $sql = 'SELECT name, colour, calories FROM fruit';
