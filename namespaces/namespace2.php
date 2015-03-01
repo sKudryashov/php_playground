@@ -42,8 +42,7 @@ namespace namespaces\namespace2{
             echo 'test meth space 2 called';
         }
     }
-    
-   // это установка в базовый неймспейс если не ошибаюсь
+
     $tt = new namespace\Myclass();
 }
 namespace namespaces\space3{
@@ -61,7 +60,8 @@ namespace namespaces\space3{
     }
 }
 
-// global namespace - да вот он глобальный неймспейс
+// global namespace
+// global namespace
 namespace {
     class Myclass{
         

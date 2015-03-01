@@ -1,0 +1,20 @@
+{
+    "name": "playground/www",
+    "description": "playground",
+
+    "require": {
+        "aws/aws-sdk-php": "2.*",
+        "symfony/yaml":"2.*",
+        "phpclasses/googlecustomsearch": ">=1.0.0"
+    },
+    "repositories":
+        [
+            {
+                "type": "composer",
+                "url": "http:\/\/www.phpclasses.org\/"
+            },
+            {
+                "packagist": false
+            }
+        ]
+}
