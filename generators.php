@@ -81,5 +81,31 @@ class DataContainer implements IteratorAggregate {
         }
     }
 }
+$dataContainerIterator = new DataContainer([1=>11, 2=>22, 3=>33]);
+foreach ($dataContainerIterator as $key=>$value) {
+    printf('Data container iterator: $key - %s, $value - %s', $key, $value);
+}
+
+function gen() {
+    yield 'a';
+    yield 'b';
+    yield 'key' => 'c';
+    yield 'd';
+    yield 10 => 'e';
+    yield 'f';
+}
+
+foreach (gen() as $key => $value) {
+    echo $key, ' => ', $value, "\n";
+}
+
+// outputs:
+//0 => a
+//1 => b
+//key => c
+//2 => d
+//10 => e
+//11 => f
+
 
 

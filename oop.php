@@ -744,3 +744,14 @@ class testPassingDataByRef {
         return $this->test;
     }
 }
+
+function foo(&$var)
+{
+    $var++;
+}
+function bar() // Note the missing &
+{
+    $a = 5;
+    return $a;
+}
+//foo(bar()); // Produces fatal error since PHP 5.0.5
