@@ -4,7 +4,7 @@
  *
  * @author Kudryashov Sergey iden.82@gmail.com
  */
-require_once 'namespaces/namespace1.php';
+require_once 'namespaces/namespace1.php'; // namespaces doesn't work without requiring for functions
 //require_once 'namespaces/namespace2.php';
 
 use namespaces\namespace1 as nmOne;
@@ -15,7 +15,7 @@ $jore_statement = nmOne\joreGoHome(); //тест вызова функции и�
 $cl = new nmOne\Myclass();
 $meth = $cl->testMeth();
 
-$cl2 = new nmTwo\Myclass();
+$cl2 = new nmTwo\Myclass(); // in this case namespace works through autoloader. Without autoloader it won't work
 $cl2->testMeth();
 
 $cl = new Myclass();

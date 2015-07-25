@@ -727,3 +727,31 @@ catch(ReflectionException $e)
 {
     echo 'Reflection Exception:'.$e->getMessage();
 }
+
+$testObj = new testPassingDataByRef;
+$array = &$testObj->getArray();
+$array[0] = 3;
+$array[1] = 4;
+$newArray = &$testObj->getArray(); // it returns [3,4]
+//http://php.net/manual/en/language.references.return.php
+//Unlike parameter passing, here you have to use & in both places - to indicate that you want to return
+//    by reference, not a copy, and to indicate that reference binding, rather than usual assignment,
+//should be done for $myValue.
+class testPassingDataByRef {
+    protected $test = [1, 2];
+
+    public function &getArray() {
+        return $this->test;
+    }
+}
+
+function foo(&$var)
+{
+    $var++;
+}
+function bar() // Note the missing &
+{
+    $a = 5;
+    return $a;
+}
+//foo(bar()); // Produces fatal error since PHP 5.0.5
