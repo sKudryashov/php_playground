@@ -3,15 +3,12 @@
     "description": "playground",
 
     "require": {
+        "twig/twig": "1.*",
         "aws/aws-sdk-php": "2.*",
         "symfony/yaml": "2.*",
         "videlalvaro/php-amqplib": "2.5.*"
     },
     "repositories": [
-        {
-            "type": "composer",
-            "url": "http:\/\/www.phpclasses.org\/"
-        },
         {
             "type": "composer",
             "url": "https://packagist.org"

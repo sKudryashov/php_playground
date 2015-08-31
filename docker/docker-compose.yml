@@ -1,0 +1,13 @@
+web:
+  build: .
+  command: apachectl -DFOREGROUND
+  volumes:
+    - ../:/var/www/html
+  ports:
+    - "80:80"
+  links:
+    - dbmysql
+dbmysql:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD="333888"
