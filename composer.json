@@ -3,18 +3,15 @@
     "description": "playground",
 
     "require": {
+        "twig/twig": "1.*",
         "aws/aws-sdk-php": "2.*",
-        "symfony/yaml":"2.*",
-        "phpclasses/googlecustomsearch": ">=1.0.0"
+        "symfony/yaml": "2.*",
+        "videlalvaro/php-amqplib": "2.5.*"
     },
-    "repositories":
-        [
-            {
-                "type": "composer",
-                "url": "http:\/\/www.phpclasses.org\/"
-            },
-            {
-                "packagist": false
-            }
-        ]
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        }
+    ]
 }
