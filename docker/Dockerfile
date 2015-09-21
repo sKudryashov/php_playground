@@ -14,6 +14,8 @@ RUN npm install -g bower
 #gearman installation
 RUN apt-get install -y libgearman7
 RUN apt-get install -y php5-gearman
+RUN apt-get install -y php5-dev
+RUN apt-get install -y php5-mysql
 EXPOSE 80
 EXPOSE 9000
 EXPOSE 9001

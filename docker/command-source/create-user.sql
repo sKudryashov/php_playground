@@ -1,0 +1,5 @@
+
+CREATE USER 'admin'@'%' IDENTIFIED BY '000999';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%'
+      WITH GRANT OPTION;
+GRANT RELOAD,PROCESS ON *.* TO 'admin'@'localhost';
