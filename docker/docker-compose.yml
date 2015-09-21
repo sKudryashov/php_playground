@@ -3,11 +3,30 @@ web:
   command: apachectl -DFOREGROUND
   volumes:
     - ../:/var/www/html
+#- ./apache-sites-enabled:/etc/apache2/sites-enabled
   ports:
     - "80:80"
+    - "9001:9001"
+    - "9000:9000"
   links:
     - dbmysql
+    - rabbitmq
+    - redis
 dbmysql:
-  image: mysql
-  environment:
-    - MYSQL_ROOT_PASSWORD="333888"
+  build: .
+  dockerfile: ./Dockerfile-mysql
+rabbitmq:
+  image: rabbitmq:3.5.4
+redis:
+  image: redis:2.6
+#MYSQL_STUFF
+#  environment:
+#    MYSQL_ROOT_PASSWORD: "333888"
+#    MYSQL_USER: tornado
+#    MYSQL_PASSWORD: "333888333"
+#  environment:
+#    - MYSQL_ROOT_PASSWORD="333888"
+#    - MYSQL_USER="tornado"
+#    - MYSQL_PASSWORD="333888333"
+#volumes:
+#- ./mysql-database-dir:/var/lib/mysql

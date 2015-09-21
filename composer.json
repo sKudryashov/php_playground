@@ -6,7 +6,8 @@
         "twig/twig": "1.*",
         "aws/aws-sdk-php": "2.*",
         "symfony/yaml": "2.*",
-        "videlalvaro/php-amqplib": "2.5.*"
+        "videlalvaro/php-amqplib": "2.5.*",
+        "cboden/ratchet": "0.3.*"
     },
     "repositories": [
         {

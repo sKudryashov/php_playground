@@ -68,6 +68,14 @@
 //х >> n эквивалентно делению на 2n, если это число неотрицательно.
 
 echo "\nBasics tricks\n";
+var_dump($_ENV);
+$host = getenv('DBMYSQL_PORT_3306_TCP_ADDR');
+$dbname = getenv('DBMYSQL_NAME');
+$pdo = new PDO('mysql:host='.$host, 'tornado', "333888333");
+echo "pdo:";
+//var_dump($pdo);
+phpinfo();
+die;
 // PHP Basics 
 error_reporting(E_ALL);
 
